@@ -13,7 +13,7 @@ class MultipleQuestion : MonoBehaviour, IQuestion
 
     public bool CheckCorrect()
     {
-        throw new System.NotImplementedException();
+        return true;
     }
 
     public void Initialize(JSONNode Question)

@@ -17,7 +17,6 @@ public class Chapter
         {
             Level lvl = new Level(level);
             _Levels.Add(lvl);
-            lvl.PrintName();
         }
     }
 }
