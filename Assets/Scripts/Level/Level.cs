@@ -1,31 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 using SimpleJSON;
 
-[Serializable]
-public class Level
+public class Level : IQuestion
 {
-    public string Name { private set; get; }
-    public IQuestion[] Test;
-    private JSONNode LevelNode;
-    
-    public Level (JSONNode level)
-    {
-        LevelNode = level;
-        Name = LevelNode["level"];
-    }
+    public string Name;
+    public List<IQuestion> Questions = new List<IQuestion>();
 
-    private void InitializeQuestions()
+    public Level(JSONNode levelNode)
     {
-        JSONArray questions = LevelNode["test"].AsArray;
-        foreach(JSONNode question in questions)
+        Name = levelNode["name"];
+        JSONArray questionsArray = levelNode["test"].AsArray;
+        foreach(JSONNode node in questionsArray)
         {
-            if(question["type"] == "multiple")
+            string type = node["type"];
+            switch(type)
             {
-                IQuestion quest = new MultipleQuestion();
-                quest.Initialize(question);
+                case "one":
+                    IQuestion question = new InputQuestion(node);
+                    Questions.Add(question);
+                    break;
             }
         }
     }
