@@ -7,6 +7,7 @@ public class Level : IQuestion
 {
     public string Name;
     public List<IQuestion> Questions = new List<IQuestion>();
+    public bool isCompleted;
 
     public Level(JSONNode levelNode)
     {

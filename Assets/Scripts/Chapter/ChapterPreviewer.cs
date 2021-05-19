@@ -5,12 +5,19 @@ using UnityEngine.EventSystems;
 public class ChapterPreviewer : MonoBehaviour, IPointerClickHandler
 {
     private Chapter _Chapter;
-    public TextMeshProUGUI _Number;
-    public TextMeshProUGUI _Theme;
-    public TextMeshProUGUI _Percentage;
+    [SerializeField]
+    private TextMeshProUGUI _Number;
+    [SerializeField]
+    private TextMeshProUGUI _Theme;
+    [SerializeField]
+    private TextMeshProUGUI _Percentage;
 
-    public void Init(Chapter chapter, int number)
+    [SerializeField]
+    private ChaptersPreviewer _ChaptersPreviewer;
+
+    public void Init(Chapter chapter, int number, ChaptersPreviewer _ChaptersPreviewer)
     {
+        this._ChaptersPreviewer = _ChaptersPreviewer;
         _Chapter = chapter;
         _Number.text = "Глава " + (number+1).ToString();
         _Theme.text = _Chapter.name;
@@ -19,6 +26,6 @@ public class ChapterPreviewer : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        
+        _ChaptersPreviewer.OpenLevels(_Chapter);
     }
 }

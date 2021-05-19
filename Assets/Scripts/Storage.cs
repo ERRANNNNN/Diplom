@@ -5,4 +5,5 @@ using UnityEngine;
 public class Storage
 {
     public static List<Chapter> Chapters = new List<Chapter>();
+    public static Level CurrentLevel = null;
 }
