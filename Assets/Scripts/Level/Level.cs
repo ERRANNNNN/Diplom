@@ -18,9 +18,18 @@ public class Level : IQuestion
             string type = node["type"];
             switch(type)
             {
-                case "one":
+                case "input":
                     IQuestion question = new InputQuestion(node);
                     Questions.Add(question);
+                    break;
+                case "one":
+                    question = new OneQuestion(node);
+                    Questions.Add(question);
+                    break;
+                case "multiple":
+                    question = new MultipleQuestion(node);
+                    break;
+                case "image-input":
                     break;
             }
         }

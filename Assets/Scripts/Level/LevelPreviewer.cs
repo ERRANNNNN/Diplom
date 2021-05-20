@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class LevelPreviewer: MonoBehaviour
+public class LevelPreviewer: MonoBehaviour, IPointerClickHandler
 {
     private Level _Level;
     [SerializeField]
@@ -34,8 +35,9 @@ public class LevelPreviewer: MonoBehaviour
         }
     }
 
-    //public void OnPointerClick(PointerEventData eventData)
-    //{
-
-    //}
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Storage.CurrentLevel = _Level;
+        Loading.LoadScene("Level");
+    }
 }

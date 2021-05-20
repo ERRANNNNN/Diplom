@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IQuestionPreviewer 
 {
-    void PreviewQuestion();
+    void PreviewQuestion(IQuestion question);
 }

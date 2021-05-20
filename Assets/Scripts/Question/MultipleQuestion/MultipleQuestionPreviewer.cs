@@ -1,7 +1,8 @@
-﻿using UnityEngine.UI;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class InputQuestionPreviewer : MonoBehaviour, IQuestionPreviewer
+public class MultipleQuestionPreviewer : MonoBehaviour, IQuestionPreviewer
 {
     public void PreviewQuestion(IQuestion question)
     {
