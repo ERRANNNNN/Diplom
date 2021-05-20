@@ -4,7 +4,7 @@ using SimpleJSON;
 public class OneQuestion : IQuestion
 {
     public string Question;
-    public string Type = "One";
+    public string Type => "one";
     public string Correct;
     public string[] values = new string[4];
 

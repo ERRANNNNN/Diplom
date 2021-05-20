@@ -2,5 +2,5 @@
 
 public interface IQuestion
 {
-    
+    string Type { get; }
 }

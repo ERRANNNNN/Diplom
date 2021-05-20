@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using SimpleJSON;
 
-public class Level : IQuestion
+public class Level
 {
     public string Name;
     public List<IQuestion> Questions = new List<IQuestion>();
@@ -16,10 +16,11 @@ public class Level : IQuestion
         foreach(JSONNode node in questionsArray)
         {
             string type = node["type"];
+            IQuestion question;
             switch(type)
             {
                 case "input":
-                    IQuestion question = new InputQuestion(node);
+                    question = new InputQuestion(node);
                     Questions.Add(question);
                     break;
                 case "one":
@@ -28,6 +29,7 @@ public class Level : IQuestion
                     break;
                 case "multiple":
                     question = new MultipleQuestion(node);
+                    Questions.Add(question);
                     break;
                 case "image-input":
                     break;

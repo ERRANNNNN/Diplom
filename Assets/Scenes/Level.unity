@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 268200284}
   - component: {fileID: 268200286}
   - component: {fileID: 268200285}
+  - component: {fileID: 268200287}
   m_Layer: 5
   m_Name: Questions
   m_TagString: Untagged
@@ -196,6 +197,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 268200283}
   m_CullTransparentMesh: 0
+--- !u!114 &268200287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268200283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 455783d454d35c44091bec026204107d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QuestionsParent: {fileID: 439186637}
+  InputQuestion: {fileID: 1376334380864010994, guid: 5cfab7d7141aac1469adc663059706e4,
+    type: 3}
+  MultipleQuestion: {fileID: 7902284114408981634, guid: 4ecc665389e38db4581d1f91f4800d34,
+    type: 3}
+  OneQuestion: {fileID: 5133275920011211864, guid: 47e08d391e0796f4e8489958011d71d7,
+    type: 3}
 --- !u!1 &439186636
 GameObject:
   m_ObjectHideFlags: 0

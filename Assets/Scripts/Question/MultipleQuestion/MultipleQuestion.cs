@@ -4,7 +4,7 @@ using SimpleJSON;
 public class MultipleQuestion : IQuestion
 {
     public string Question;
-    public string Type = "Multiple";
+    public string Type => "multiple";
     public List<string> correct = new List<string>();
     public string[] values = new string[4];
 

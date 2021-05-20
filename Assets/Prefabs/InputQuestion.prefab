@@ -195,6 +195,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1376334380864010994}
   - component: {fileID: 1376334380864011004}
+  - component: {fileID: 4805165550578813486}
   m_Layer: 5
   m_Name: InputQuestion
   m_TagString: Untagged
@@ -248,6 +249,18 @@ MonoBehaviour:
   m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+--- !u!114 &4805165550578813486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376334380864010995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da7d695f63080354eb6011641a825618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2293269929143114913
 GameObject:
   m_ObjectHideFlags: 0
