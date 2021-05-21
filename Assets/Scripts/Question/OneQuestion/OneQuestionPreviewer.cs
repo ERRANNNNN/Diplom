@@ -17,9 +17,11 @@ public class OneQuestionPreviewer : MonoBehaviour, IQuestionPreviewer
     public void PreviewQuestion(IQuestion question)
     {
         _OneQuestion = (OneQuestion)question;
+        Question.text = _OneQuestion.Question;
 
         for(int i = 0; i < _OneQuestion.values.Length; i++)
         {
+            Debug.Log(_OneQuestion.values[i]);
             Labels[i].text = _OneQuestion.values[i];
         }
     }

@@ -1389,6 +1389,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fd6d271ffb27b24f8367bc563c45c37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Labels:
+  - {fileID: 5751854967714224225}
+  - {fileID: 5751854968231634399}
+  - {fileID: 5751854967795757710}
+  - {fileID: 5751854966983766244}
+  Toggles:
+  - {fileID: 5751854967537299957}
+  - {fileID: 5751854967302445330}
+  - {fileID: 5751854967765229827}
+  - {fileID: 5751854966639295246}
+  questionText: {fileID: 7902284115391241703}
 --- !u!1 &7902284115391241701
 GameObject:
   m_ObjectHideFlags: 0

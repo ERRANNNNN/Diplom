@@ -19,19 +19,27 @@ public class QuestionsPreviewer : MonoBehaviour
         foreach(IQuestion question in Storage.CurrentLevel.Questions)
         {
             IQuestionPreviewer previewer;
+            Transform questObj;
             switch(question.Type)
             {
                 case "input":
-                    Transform questObj = Instantiate(InputQuestion, QuestionsParent);
-                    previewer = questObj.gameObject.GetComponent<IQuestionPreviewer>();
-                    previewer.PreviewQuestion(question);
+                    questObj = Instantiate(InputQuestion, QuestionsParent);
                     break;
                 case "multiple":
-                    Instantiate(MultipleQuestion, QuestionsParent);
+                    questObj = Instantiate(MultipleQuestion, QuestionsParent);
                     break;
                 case "one":
-                    Instantiate(OneQuestion, QuestionsParent);
+                    questObj = Instantiate(OneQuestion, QuestionsParent);
                     break;
+                default:
+                    questObj = null;
+                    break;
+            }
+
+            if(questObj != null)
+            {
+                previewer = questObj.gameObject.GetComponent<IQuestionPreviewer>();
+                previewer.PreviewQuestion(question);
             }
         }
     }
