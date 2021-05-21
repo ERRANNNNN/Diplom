@@ -7,13 +7,15 @@ class ChaptersLoader : MonoBehaviour
 
     public void Start()
     {
-        JSONNode MainNode = JSON.Parse(JsonFile.text);
-        JSONArray chapters = MainNode["chapters"].AsArray;
-        foreach(JSONNode chapter in chapters)
+        if(Storage.Chapters.Count == 0)
         {
-            Chapter newChapter = new Chapter(chapter);
-            Storage.Chapters.Add(newChapter);
+            JSONNode MainNode = JSON.Parse(JsonFile.text);
+            JSONArray chapters = MainNode["chapters"].AsArray;
+            foreach (JSONNode chapter in chapters)
+            {
+                Chapter newChapter = new Chapter(chapter);
+                Storage.Chapters.Add(newChapter);
+            }
         }
-        
     }
 }

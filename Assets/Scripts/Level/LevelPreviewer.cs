@@ -37,7 +37,10 @@ public class LevelPreviewer: MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Storage.CurrentLevel = _Level;
-        Loading.LoadScene("Level");
+        if(!_Level.isCompleted)
+        {
+            Storage.CurrentLevel = _Level;
+            Loading.LoadScene("Level");
+        }
     }
 }

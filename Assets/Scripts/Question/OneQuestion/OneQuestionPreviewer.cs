@@ -14,6 +14,8 @@ public class OneQuestionPreviewer : MonoBehaviour, IQuestionPreviewer
 
     OneQuestion _OneQuestion;
 
+    public OneQuestionChecker _Checker;
+
     public void PreviewQuestion(IQuestion question)
     {
         _OneQuestion = (OneQuestion)question;
@@ -21,8 +23,19 @@ public class OneQuestionPreviewer : MonoBehaviour, IQuestionPreviewer
 
         for(int i = 0; i < _OneQuestion.values.Length; i++)
         {
-            Debug.Log(_OneQuestion.values[i]);
             Labels[i].text = _OneQuestion.values[i];
         }
+        InitChecker();
+    }
+
+    private void InitChecker()
+    {
+        _Checker.Toggles = Toggles;
+        _Checker.Correct = int.Parse(_OneQuestion.Correct);
+    }
+
+    public IQuestionChecker GetChecker()
+    {
+        return _Checker;
     }
 }
