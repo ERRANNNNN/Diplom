@@ -49,6 +49,6 @@ public class Turner : MonoBehaviour, IPointerClickHandler, IOutput
 
     public void Send(IInput input, bool active)
     {
-        input.Get();
+        input.Get(default, active);
     }
 }

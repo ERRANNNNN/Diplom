@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class Path : MonoBehaviour, IOutput, IInput
 {
     public bool IsActive { get; private set; }
 
     [SerializeField]
-    private IInput input;
+    private IInput output;
+
+    [SerializeField]
+    private GameObject outputObject;
+
     [SerializeField]
     private Color ActiveColor;
     [SerializeField]
@@ -16,16 +21,23 @@ public class Path : MonoBehaviour, IOutput, IInput
     [SerializeField]
     private Image _Image;
 
+    private void Start()
+    {
+        output = outputObject.GetComponent<IInput>();
+    }
+
     public void Send(IInput input, bool active)
     {
-        input.Get(this, active);
+        IOutput thisOutput = this;
+        output.Get(thisOutput, active);
     }
 
     public void Get(IOutput output, bool active)
     {
-        IsActive = !IsActive;
+        IsActive = active;
         ChangeView(IsActive);
-        //Send(input, IsActive);
+
+        Send(null, IsActive);
     }
 
     private void ChangeView(bool active)
