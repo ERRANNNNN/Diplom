@@ -24,6 +24,17 @@ public class TestResultsPanel : MonoBehaviour
         if (percents >= 60) {
             Congratulations.text = "Поздравляем!";
             Storage.CurrentLevel.isCompleted = true;
+            int stars;
+
+            if(percents < 70)
+                stars = 1;
+            else if(percents < 80)
+                stars = 2;
+            else
+                stars = 3;
+
+            Storage.CurrentLevel.stars = stars;
+
         } else {
             Congratulations.text = "Увы, не получилось...";
         }

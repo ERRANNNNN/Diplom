@@ -25,6 +25,7 @@ public class OneQuestionPreviewer : MonoBehaviour, IQuestionPreviewer
         {
             Labels[i].text = _OneQuestion.values[i];
         }
+
         InitChecker();
     }
 
