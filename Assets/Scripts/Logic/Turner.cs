@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Linq;
+using System.Collections;
 
 [System.Serializable]
 public class Turner : MonoBehaviour, IPointerClickHandler, IOutput
@@ -25,6 +26,18 @@ public class Turner : MonoBehaviour, IPointerClickHandler, IOutput
     private void Start()
     {
         GetInputs();
+        StartCoroutine("Init");
+        ChangeView(IsActive);
+    }
+
+    IEnumerator Init()
+    {
+        yield return new WaitForSeconds(0.2f);
+        
+        foreach (IInput input in Inputs)
+        {
+            Send(input, IsActive);
+        }
     }
 
     private void GetInputs()
@@ -36,10 +49,7 @@ public class Turner : MonoBehaviour, IPointerClickHandler, IOutput
     {
         IsActive = !IsActive;
 
-        if (IsActive)
-            _Image.color = ActiveColor;
-        else
-            _Image.color = UnactiveColor;
+        ChangeView(IsActive);
 
         foreach(IInput input in Inputs)
         {
@@ -50,5 +60,13 @@ public class Turner : MonoBehaviour, IPointerClickHandler, IOutput
     public void Send(IInput input, bool active)
     {
         input.Get(default, active);
+    }
+
+    private void ChangeView(bool active)
+    {
+        if (active)
+            _Image.color = ActiveColor;
+        else
+            _Image.color = UnactiveColor;
     }
 }

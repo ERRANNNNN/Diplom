@@ -29,7 +29,6 @@ public class Condition : MonoBehaviour, IInput
 
     public void Get(IOutput output = null, bool active = false)
     {
-        Debug.Log("Принял! " + output + " " + active);
         inputsActives[inputs.IndexOf(output)] = active;
         Check();
     }
