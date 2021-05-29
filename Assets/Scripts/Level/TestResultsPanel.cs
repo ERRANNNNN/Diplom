@@ -3,10 +3,8 @@ using TMPro;
 
 public class TestResultsPanel : MonoBehaviour
 {
-    [SerializeField]
-    private TextMeshProUGUI Congratulations;
-    [SerializeField]
-    private TextMeshProUGUI Results;
+    [SerializeField] private TextMeshProUGUI Congratulations;
+    [SerializeField] private TextMeshProUGUI Results;
 
     public void Initialize(int all, int correct)
     {

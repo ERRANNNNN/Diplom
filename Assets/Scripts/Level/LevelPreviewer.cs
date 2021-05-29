@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -8,39 +6,39 @@ using UnityEngine.EventSystems;
 public class LevelPreviewer: MonoBehaviour, IPointerClickHandler
 {
     private Level _Level;
-    [SerializeField]
-    private TextMeshProUGUI _Number;
-    [SerializeField]
-    private TextMeshProUGUI _Theme;
-    [SerializeField]
-    private Image _Image;
-    [SerializeField]
-    private TextMeshProUGUI _Completed;
+    [SerializeField] private TextMeshProUGUI _Number;
+    [SerializeField] private TextMeshProUGUI _Theme;
+    [SerializeField] private Image _Image;
+    [SerializeField] private Stars _Stars;
 
-    private Color ColorCompleted = new Color(0.56f, 0.58f, 0.6f);
-    private Color ColorUncompleted = new Color(0.29f, 0.6f, 0.2f);
+    private Color ColorCompleted = new Color(1, 1, 1, 0.5f);
+    private Color ColorUncompleted = new Color(1,1,1,1);
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (!_Level.isCompleted)
+        {
+            Storage.CurrentLevel = _Level;
+            Loading.LoadScene("Level");
+        }
+    }
 
     public void Init(Level level, int number)
     {
         _Level = level;
         _Number.text = "Уровень " + (number + 1).ToString();
         _Theme.text = _Level.Name;
-        if(_Level.isCompleted)
-        {
-            _Completed.text = "Пройден";
-            _Image.color = ColorCompleted;
-        } else {
-            _Completed.text = "";
-            _Image.color = ColorUncompleted;
-        }
+
+        ChangeColor(_Level.isCompleted);
+        _Stars.Initialize(_Level.stars);
+        
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    private void ChangeColor(bool levelIsCompleted)
     {
-        if(!_Level.isCompleted)
-        {
-            Storage.CurrentLevel = _Level;
-            Loading.LoadScene("Level");
-        }
+        if (levelIsCompleted)
+            _Image.color = ColorCompleted;
+        else
+            _Image.color = ColorUncompleted;
     }
 }
