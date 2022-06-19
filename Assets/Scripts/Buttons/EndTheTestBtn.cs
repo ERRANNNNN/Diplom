@@ -9,6 +9,8 @@ public class EndTheTestBtn : MonoBehaviour
 
     public void EndTest()
     {
+        AudioClip sound = Resources.Load<AudioClip>("Sounds/Wood Tap");
+        AudioSource.PlayClipAtPoint(sound, new Vector3(0, 0, 0),Storage.Volume);
         int corrects = 0;
 
         foreach(IQuestionChecker checker in checkers)
@@ -22,4 +24,5 @@ public class EndTheTestBtn : MonoBehaviour
         ResultsObj.SetActive(true);
         _ResultsPanel.Initialize(checkers.Count, corrects);
     }
+    
 }

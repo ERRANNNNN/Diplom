@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Linq;
 
 public class Path : MonoBehaviour, IOutput, IInput
 {
@@ -18,6 +15,10 @@ public class Path : MonoBehaviour, IOutput, IInput
     private Color ActiveColor;
     [SerializeField]
     private Color UnactiveColor;
+
+    [SerializeField] private Sprite ActiveSprite;
+    [SerializeField] private Sprite NonActiveSprite;
+
     [SerializeField]
     private Image _Image;
 
@@ -43,8 +44,8 @@ public class Path : MonoBehaviour, IOutput, IInput
     private void ChangeView(bool active)
     {
         if (active)
-            _Image.color = ActiveColor;
+            _Image.sprite = ActiveSprite;
         else
-            _Image.color = UnactiveColor;
+            _Image.sprite = NonActiveSprite;
     }
 }

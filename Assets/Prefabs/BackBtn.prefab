@@ -212,3 +212,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PanelToClose: {fileID: 0}
   PanelToOpen: {fileID: 0}
+  sound: {fileID: 8300000, guid: 91ddea1a9cf3353489312317328c1fcb, type: 3}

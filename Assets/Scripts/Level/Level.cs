@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using SimpleJSON;
+using System;
 
+[Serializable]
 public class Level
 {
     public string Name;
@@ -39,6 +41,8 @@ public class Level
                     Questions.Add(question);
                     break;
                 case "image-input":
+                    question = new ImageQuestion(node);
+                    Questions.Add(question);
                     break;
             }
         }

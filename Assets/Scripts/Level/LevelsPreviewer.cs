@@ -6,7 +6,16 @@ public class LevelsPreviewer : MonoBehaviour
 {
     public Transform _TLevelPreviewer;
     public Transform _TParentOfLevel;
+
     private List<GameObject> LevelObjects = new List<GameObject>();
+
+    public void Start()
+    {
+        if(LevelObjects.Count == 0)
+        {
+            PreviewLevelsOfChapter(Storage.CurrentChapter);
+        }
+    }
 
     public void PreviewLevelsOfChapter(Chapter chapter)
     {
@@ -16,14 +25,16 @@ public class LevelsPreviewer : MonoBehaviour
             {
                 Destroy(levelObject);
             }
+
+            LevelObjects = new List<GameObject>();
         }
 
-        for(int i = 0; i < chapter.Levels.Count; i++)
+        for(int levelNumber = 0; levelNumber < chapter.Levels.Count; levelNumber++)
         {
             GameObject _TObj = Instantiate(_TLevelPreviewer, _TParentOfLevel).gameObject;
             LevelObjects.Add(_TObj);
             LevelPreviewer _LevelPreviewer = _TObj.GetComponent<LevelPreviewer>();
-            _LevelPreviewer.Init(chapter.Levels[i], i);
+            _LevelPreviewer.Init(chapter.Levels[levelNumber], levelNumber);
         }
     }
 }

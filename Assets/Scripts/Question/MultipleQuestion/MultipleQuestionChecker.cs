@@ -15,7 +15,6 @@ public class MultipleQuestionChecker : MonoBehaviour, IQuestionChecker
         {
             if(Toggles[int.Parse(correct)-1].isOn)
             {
-                
                 correctsCounter++;
             }
         }

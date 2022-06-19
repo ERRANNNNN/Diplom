@@ -18,8 +18,10 @@ public class LevelPreviewer: MonoBehaviour, IPointerClickHandler
     {
         if (!_Level.isCompleted)
         {
+            AudioClip sound = Resources.Load<AudioClip>("Sounds/Wood Tap 1");
+            AudioSource.PlayClipAtPoint(sound, new Vector3(0, 0, 0), Storage.Volume);
             Storage.CurrentLevel = _Level;
-            Loading.LoadScene("Level");
+            Loading.LoadScene("Level2");
         }
     }
 
@@ -31,7 +33,6 @@ public class LevelPreviewer: MonoBehaviour, IPointerClickHandler
 
         ChangeColor(_Level.isCompleted);
         _Stars.Initialize(_Level.stars);
-        
     }
 
     private void ChangeColor(bool levelIsCompleted)

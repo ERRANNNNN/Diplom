@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
@@ -47,6 +46,9 @@ public class Condition : MonoBehaviour, IInput
             case "not":
                 finalBool = Not();
                 break;
+            case "xor":
+                finalBool = Xor();
+                break;
         }
 
         foreach(IInput input in outputs)
@@ -78,5 +80,14 @@ public class Condition : MonoBehaviour, IInput
     private bool Not()
     {
         return !inputsActives[0];
+    }
+
+    private bool Xor()
+    {
+        if ((inputsActives.Where(x => x == true).ToList().Count == inputsActives.Length) || (inputsActives.Where(x => x == false).ToList().Count == inputsActives.Length))
+        {
+            return false;
+        }
+        else return true;
     }
 }

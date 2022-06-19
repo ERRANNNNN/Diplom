@@ -19,14 +19,14 @@ public class TestResultsPanel : MonoBehaviour
 
         Debug.Log(percents);
 
-        if (percents >= 60) {
+        if (percents >= 50) {
             Congratulations.text = "Поздравляем!";
             Storage.CurrentLevel.isCompleted = true;
             int stars;
 
-            if(percents < 70)
+            if(percents < 60)
                 stars = 1;
-            else if(percents < 80)
+            else if(percents < 100)
                 stars = 2;
             else
                 stars = 3;
@@ -38,5 +38,6 @@ public class TestResultsPanel : MonoBehaviour
         }
 
         Results.text = "Верно: " + correct + " из " + all;
+        Storage.SaveChapters();
     }
 }
